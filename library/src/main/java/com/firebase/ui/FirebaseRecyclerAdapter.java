@@ -151,6 +151,14 @@ public abstract class FirebaseRecyclerAdapter<T, VH extends RecyclerView.ViewHol
     }
 
     public Firebase getRef(int position) { return mSnapshots.getItem(position).getRef(); }
+    
+    public void swapRef(Firebase ref) {
+        mSnapshots = new FirebaseArray((Query) ref);
+    }
+    
+    public void swapRef(Query ref) {
+        mSnapshots = new FirebaseArray(ref);
+    }
 
     @Override
     public long getItemId(int position) {
